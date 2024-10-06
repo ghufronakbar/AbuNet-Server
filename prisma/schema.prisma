@@ -52,8 +52,8 @@ model Package {
 model Specification {
   specificationId String   @id @default(uuid())
   spec            String
-  package         Package? @relation(fields: [packageId], references: [packageId])
-  packageId       String?
+  package         Package  @relation(fields: [packageId], references: [packageId])
+  packageId       String
   createdAt       DateTime @default(now())
   updatedAt       DateTime @default(now()) @updatedAt
 }

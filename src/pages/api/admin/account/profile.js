@@ -1,8 +1,6 @@
 import { resClientError, resNotAllowed, resServerError, resSuccess } from "@/helper/response";
-import { editAdminName, editAdminPassword, getAdminByEmail, getAdminById, updateRefreshToken } from "@/models/admin";
-import jwt from "jsonwebtoken";
+import { editAdminName, editAdminPassword, getAdminById, } from "@/models/admin";
 import bcrypt from "bcrypt";
-import { JWT_SECRET } from "@/constant";
 import adminAuth from "@/middleware/adminAuth";
 
 async function handler(req, res) {
