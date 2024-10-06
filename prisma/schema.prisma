@@ -1,0 +1,82 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  adminId      String   @id @default(uuid())
+  name         String
+  email        String   @unique
+  password     String
+  refreshToken String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+}
+
+model User {
+  userId       String        @id @default(uuid())
+  name         String
+  email        String        @unique
+  address      String?
+  picture      String?
+  phone        String?
+  password     String
+  isAttached   Boolean       @default(false)
+  isDeleted    Boolean       @default(false)
+  refreshToken String?
+  transactions Transaction[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @default(now()) @updatedAt
+}
+
+model Package {
+  packageId        String          @id @default(uuid())
+  name             String
+  description      String
+  specifications   Specification[]
+  installationCost Int
+  image            String
+  price            Int
+  isActive         Boolean         @default(true)
+  isDeleted        Boolean         @default(false)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @default(now()) @updatedAt
+  transactions     Transaction[]
+}
+
+model Specification {
+  specificationId String   @id @default(uuid())
+  spec            String
+  package         Package? @relation(fields: [packageId], references: [packageId])
+  packageId       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+}
+
+model Transaction {
+  transactionId String    @id @default(uuid())
+  userId        String
+  packageId     String
+  packageName   String
+  totalPrice    Int
+  isPaid        Boolean   @default(false)
+  isCancelled   Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
+  paidAt        DateTime?
+
+  user    User    @relation(fields: [userId], references: [userId])
+  package Package @relation(fields: [packageId], references: [packageId])
+}
+
+model Coverage {
+  coverageId String   @id @default(uuid())
+  location   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+}
