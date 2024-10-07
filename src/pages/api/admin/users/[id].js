@@ -14,7 +14,8 @@ async function handler(req, res) {
             const user = await getUserById(id);
 
             if (!user) return res.status(404).json(resNotFound());
-
+            delete user.password;
+            delete user.refreshToken;
             for (const transaction of user.transactions) {
                 if (transaction.isCancelled) {
                     transaction.status = "CANCELLED";

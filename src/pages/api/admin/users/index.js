@@ -10,6 +10,8 @@ async function handler(req, res) {
         if (req.method === 'GET') {
             const users = await getAllUsers();
             for (const user of users) {
+                delete user.password;
+                delete user.refreshToken;
                 for (const transaction of user.transactions) {
                     if (transaction.isCancelled) {
                         transaction.status = "CANCELLED";

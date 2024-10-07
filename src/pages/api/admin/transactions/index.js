@@ -1,4 +1,4 @@
-import { resClientError, resNotAllowed, resServerError, resSuccess } from "@/helper/response";
+import { resNotAllowed, resServerError, resSuccess } from "@/helper/response";
 import sevenDaysAgo from "@/helper/sevenDaysAgo";
 import adminAuth from "@/middleware/adminAuth";
 import { getAllTransactions } from "@/models/transaction";

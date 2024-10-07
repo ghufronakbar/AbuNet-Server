@@ -15,6 +15,23 @@ export const getAllPackages = async () => {
     });
 }
 
+export const getAllPackagesPopular = async () => {
+    return prisma.package.findMany({
+        orderBy: {
+            transactions: {
+                _count: 'desc'
+            }
+        },
+        where: {
+            isDeleted: false
+        },
+        include: {
+            specifications: true,
+            _count: true
+        }
+    });
+}
+
 export const getPackageById = async (packageId) => {
     return prisma.package.findFirst({
         where: {
