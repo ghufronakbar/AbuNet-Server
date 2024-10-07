@@ -23,3 +23,65 @@ export const getTransactionById = async (transactionId) => {
         }
     });
 }
+
+export const makeTransaction = async (userId, packageId, packageName, totalPrice) => {
+    return prisma.transaction.create({
+        data: {
+            userId,
+            packageId,
+            packageName,
+            totalPrice,
+        }
+    });
+}
+
+export const midtransTransaction = async (transactionId, snapTokenMT, redirectUrlMT) => {
+    return prisma.transaction.update({
+        where: {
+            transactionId
+        },
+        data: {
+            snapTokenMT,
+            redirectUrlMT,
+        }
+    });
+}
+
+export const paidTransaction = async (transactionId, startedAt) => {
+    return prisma.transaction.update({
+        where: {
+            transactionId
+        },
+        data: {
+            isPaid: true,
+            startedAt,
+            paidAt: new Date(),
+        }
+    });
+}
+
+
+export const getHistoryTransaction = async (userId) => {
+    return prisma.transaction.findMany({
+        where: {
+            userId
+        },
+        orderBy: {
+            createdAt: "desc",
+        },
+        include: {
+            package: true,
+        }
+    });
+}
+
+export const cancelTransaction = async (transactionId) => {
+    return prisma.transaction.update({
+        where: {
+            transactionId
+        },
+        data: {
+            isCancelled: true
+        }
+    });
+}

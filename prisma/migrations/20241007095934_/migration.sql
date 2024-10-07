@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Transaction" ALTER COLUMN "redirectUrlMT" DROP DEFAULT,
+ALTER COLUMN "snapTokenMT" DROP DEFAULT;

@@ -6,10 +6,11 @@ export const resSuccess = (message, data) => {
     }
 }
 
-export const resClientError = (message) => {
+export const resClientError = (message, data=undefined) => {
     return {
         status: 400,
-        message
+        message,
+        data
     }
 }
 

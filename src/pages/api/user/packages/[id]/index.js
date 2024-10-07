@@ -14,6 +14,10 @@ async function handler(req, res) {
             return res.status(200).json(resSuccess("Data Paket", packages));
         }
 
+        if (req.method === 'PUT') {
+
+        }
+
         return res.status(405).json(resNotAllowed());
     } catch (error) {
         console.error('API Error:', error);
