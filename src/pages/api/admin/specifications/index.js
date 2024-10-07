@@ -1,6 +1,6 @@
 import { resClientError, resNotAllowed, resNotFound, resServerError, resSuccess } from "@/helper/response";
 import adminAuth from "@/middleware/adminAuth";
-import { createSpecification } from "@/models/spesifications";
+import { createSpecification } from "@/models/spesification";
 import { getPackageById } from "@/models/package";
 
 async function handler(req, res) {

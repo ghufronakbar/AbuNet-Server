@@ -148,12 +148,184 @@ const seedSpecification = async () => {
         console.log("Specification already exists");
     }
 }
+
+const seedUser = async () => {
+    const users = await prisma.user.findMany();
+    if (users.length === 0) {
+        console.log("Seeding user...");
+        await prisma.user.createMany({
+            data: [
+                {
+                    name: "Lans The Prodigy",
+                    email: "lanstheprodigy@gmail.com",
+                    password: await bcrypt.hash("12345678", 10),
+                    address: "Jl. Jend. Gatot Subroto, Kec. Lawang, Kab. Malang",
+                    isAttached: true,
+                    phone: "082216548094",
+                },
+                {
+                    name: "Fufufafa",
+                    email: "fufufafa@gmail.com",
+                    password: await bcrypt.hash("12345678", 10),
+                    address: "Jl. Manggasari, Kec. Soroyudan, Kab. Temanggung",
+                    isAttached: true,
+                    phone: "082216548094",
+                },
+                {
+                    name: "Asep Sukendar",
+                    email: "asepsukendar@gmail.com",
+                    password: await bcrypt.hash("12345678", 10),
+                    address: "Homeless",
+                    isAttached: false,
+                    phone: "082216548094",
+                }
+            ]
+        })
+        console.log("Seeding user success");
+    } else {
+        console.log("User already exists");
+    }
+}
+
+const seedTransaction = async () => {
+
+    const [basic, standard, gaming, streaming, transactions, firstUser, secondUser] = await Promise.all([
+        prisma.package.findFirst({ where: { name: "Basic" } }),
+        prisma.package.findFirst({ where: { name: "Standard" } }),
+        prisma.package.findFirst({ where: { name: "Gaming" } }),
+        prisma.package.findFirst({ where: { name: "Streaming" } }),
+        prisma.transaction.findMany(),
+        prisma.user.findFirst({ where: { name: "Lans The Prodigy" } }),
+        prisma.user.findFirst({ where: { name: "Fufufafa" } }),
+    ]);
+
+    if (transactions.length === 0) {
+        await prisma.transaction.createMany({
+            data: [
+                {
+                    userId: firstUser.userId,
+                    packageId: basic.packageId,
+                    totalPrice: basic.price + basic.installationCost,
+                    packageName: basic.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-08-20T12:12:12.000Z"),
+                    updatedAt: new Date("2024-08-20T12:12:12.000Z"),
+                    startedAt: new Date("2024-08-20T12:12:12.000Z"),
+                    paidAt: new Date("2024-08-20T12:12:12.000Z"),
+                },
+                {
+                    userId: firstUser.userId,
+                    packageId: basic.packageId,
+                    totalPrice: basic.price,
+                    packageName: basic.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-09-16T12:12:12.000Z"),
+                    updatedAt: new Date("2024-09-16T12:12:12.000Z"),
+                    startedAt: new Date("2024-09-20T12:12:12.000Z"),
+                    paidAt: new Date("2024-09-16T12:12:12.000Z"),
+                },
+                {
+                    userId: firstUser.userId,
+                    packageId: basic.packageId,
+                    totalPrice: basic.price,
+                    packageName: basic.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-09-14T12:12:12.000Z"),
+                    updatedAt: new Date("2024-09-14T12:12:12.000Z"),
+                    startedAt: new Date("2024-10-20T12:12:12.000Z"),
+                    paidAt: new Date("2024-09-14T12:12:12.000Z"),
+                },
+                {
+                    userId: secondUser.userId,
+                    packageId: basic.packageId,
+                    totalPrice: basic.price + basic.installationCost,
+                    packageName: basic.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-06-13T12:12:12.000Z"),
+                    updatedAt: new Date("2024-06-13T12:12:12.000Z"),
+                    startedAt: new Date("2024-06-13T12:12:12.000Z"),
+                    paidAt: new Date("2024-06-13T12:12:12.000Z"),
+                },
+                {
+                    userId: secondUser.userId,
+                    packageId: standard.packageId,
+                    totalPrice: standard.price,
+                    packageName: standard.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-07-10T12:12:12.000Z"),
+                    updatedAt: new Date("2024-07-10T12:12:12.000Z"),
+                    startedAt: new Date("2024-07-13T12:12:12.000Z"),
+                    paidAt: new Date("2024-07-10T12:12:12.000Z"),
+                },
+                {
+                    userId: secondUser.userId,
+                    packageId: gaming.packageId,
+                    totalPrice: gaming.price,
+                    packageName: gaming.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-08-09T12:12:12.000Z"),
+                    updatedAt: new Date("2024-08-09T12:12:12.000Z"),
+                    startedAt: new Date("2024-08-13T12:12:12.000Z"),
+                    paidAt: new Date("2024-08-09T12:12:12.000Z"),
+                },
+                {
+                    userId: secondUser.userId,
+                    packageId: streaming.packageId,
+                    totalPrice: streaming.price,
+                    packageName: streaming.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-09-11T12:12:12.000Z"),
+                    updatedAt: new Date("2024-09-11T12:12:12.000Z"),
+                    startedAt: new Date("2024-09-13T12:12:12.000Z"),
+                    paidAt: new Date("2024-09-08T12:12:12.000Z"),
+                },
+                {
+                    userId: secondUser.userId,
+                    packageId: streaming.packageId,
+                    totalPrice: streaming.price,
+                    packageName: streaming.name,
+                    isPaid: true,
+                    createdAt: new Date("2024-09-13T12:12:12.000Z"),
+                    updatedAt: new Date("2024-09-13T12:12:12.000Z"),
+                    startedAt: new Date("2024-09-13T12:12:12.000Z"),
+                    paidAt: new Date("2024-09-13T12:12:12.000Z"),
+                },
+                {
+                    userId: secondUser.userId,
+                    packageId: streaming.packageId,
+                    totalPrice: streaming.price,
+                    packageName: streaming.name,
+                    isPaid: false,
+                    createdAt: new Date("2024-09-30T12:12:12.000Z"),
+                    updatedAt: new Date("2024-09-30T12:12:12.000Z"),
+                },
+                {
+                    userId: secondUser.userId,
+                    packageId: streaming.packageId,
+                    totalPrice: streaming.price,
+                    packageName: streaming.name,
+                    isPaid: false,
+                    createdAt: new Date("2024-10-08T12:12:12.000Z"),
+                    updatedAt: new Date("2024-10-08T12:12:12.000Z"),
+                },
+            ]
+        });
+        console.log("Seeding transaction...");
+    } else {
+        console.log("Transaction already exists");
+    }
+};
+
+
+
 const main = async () => {
     try {
         await prisma.$connect();
         await seedAdmin();
         await seedPackage();
         await seedSpecification();
+        await seedUser();
+        await seedTransaction();
     } catch (error) {
         console.log(error);
     }

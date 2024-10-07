@@ -1,6 +1,6 @@
 import { resClientError, resNotAllowed, resNotFound, resServerError, resSuccess } from "@/helper/response";
 import adminAuth from "@/middleware/adminAuth";
-import { deleteSpecification, editSpecification, getSpecificationById } from "@/models/spesifications";
+import { deleteSpecification, editSpecification, getSpecificationById } from "@/models/spesification";
 
 async function handler(req, res) {
     const { id } = req.query;

@@ -1,4 +1,3 @@
-// schema.prisma
 generator client {
   provider = "prisma-client-js"
 }
@@ -52,7 +51,7 @@ model Package {
 model Specification {
   specificationId String   @id @default(uuid())
   spec            String
-  package         Package  @relation(fields: [packageId], references: [packageId])
+  package         Package  @relation(fields: [packageId], references: [packageId], onDelete: Cascade, onUpdate: Cascade)
   packageId       String
   createdAt       DateTime @default(now())
   updatedAt       DateTime @default(now()) @updatedAt
@@ -68,10 +67,11 @@ model Transaction {
   isCancelled   Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @default(now()) @updatedAt
+  startedAt     DateTime?
   paidAt        DateTime?
 
-  user    User    @relation(fields: [userId], references: [userId])
-  package Package @relation(fields: [packageId], references: [packageId])
+  user    User    @relation(fields: [userId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  package Package @relation(fields: [packageId], references: [packageId], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Coverage {
