@@ -346,6 +346,56 @@ const seedTransaction = async () => {
     }
 };
 
+const seedCoverage = async () => {
+    const coverage = await prisma.coverage.findMany();
+    if (coverage.length === 0) {
+        console.log("Seeding coverage...");
+        await prisma.coverage.createMany({
+            data: [
+                {
+                    location: "Jakarta"
+                },
+                {
+                    location: "Bandung"
+                },
+                {
+                    location: "Surabaya"
+                },
+                {
+                    location: "Bali"
+                },
+                {
+                    location: "Yogyakarta"
+                },
+                {
+                    location: "Lombok"
+                },
+                {
+                    location: "Lampung"
+                },
+                {
+                    location: "Medan"
+                },
+                {
+                    location: "Papua"
+                },
+                {
+                    location: "Kalimantan"
+                },
+                {
+                    location: "Sulawesi"
+                },
+                {
+                    location: "Maluku"
+                },
+            ]
+        });
+        console.log("Seeding coverage success");
+    } else {
+        console.log("Coverage already exists");
+    }
+}
+
 
 
 const main = async () => {
@@ -356,6 +406,7 @@ const main = async () => {
         await seedSpecification();
         await seedUser();
         await seedTransaction();
+        await seedCoverage();
     } catch (error) {
         console.log(error);
     }

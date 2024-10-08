@@ -54,6 +54,10 @@ async function handler(req, res) {
                 return res.status(404).json(resNotFound());
             }
 
+            if (!user.address && !user.phone) {
+                return res.status(400).json(resClientError('Lengkapi profil terlebih dahulu'));
+            }
+
             if (
                 user.transactions.length > 0 &&
                 user.transactions[0].createdAt < twentyFourHoursAfter &&
