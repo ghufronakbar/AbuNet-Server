@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "48e660ee-bbe7-4429-a597-8fede060c557",
 		"name": "AbuNet",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25112448"
 	},
 	"item": [
@@ -52,7 +52,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/account/login"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/account/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"account",
+										"login"
+									]
+								}
 							},
 							"response": []
 						},
@@ -99,7 +110,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/account/refresh"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/account/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"account",
+										"refresh"
+									]
+								}
 							},
 							"response": []
 						},
@@ -142,7 +164,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/account/profile"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/account/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"account",
+										"profile"
+									]
+								}
 							},
 							"response": []
 						},
@@ -182,7 +215,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/account/profile"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/account/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"account",
+										"profile"
+									]
+								}
 							},
 							"response": []
 						},
@@ -222,7 +266,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/account/profile"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/account/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"account",
+										"profile"
+									]
+								}
 							},
 							"response": []
 						}
@@ -270,7 +325,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/packages"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/packages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"packages"
+									]
+								}
 							},
 							"response": []
 						},
@@ -313,7 +378,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/packages/43a82e60-cba8-40f2-83d2-5700efd89cb6"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/packages/43a82e60-cba8-40f2-83d2-5700efd89cb6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"packages",
+										"43a82e60-cba8-40f2-83d2-5700efd89cb6"
+									]
+								}
 							},
 							"response": []
 						},
@@ -353,7 +429,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/packages"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/packages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"packages"
+									]
+								}
 							},
 							"response": []
 						},
@@ -393,7 +479,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"packages",
+										"4b4358e3-e8b8-47a5-9726-73baec2f2b1d"
+									]
+								}
 							},
 							"response": []
 						},
@@ -433,7 +530,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"packages",
+										"4b4358e3-e8b8-47a5-9726-73baec2f2b1d"
+									]
+								}
 							},
 							"response": []
 						},
@@ -474,7 +582,19 @@
 										}
 									]
 								},
-								"url": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d/image"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d/image",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"packages",
+										"4b4358e3-e8b8-47a5-9726-73baec2f2b1d",
+										"image"
+									]
+								}
 							},
 							"response": []
 						}
@@ -497,7 +617,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/specifications"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/specifications",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"specifications"
+									]
+								}
 							},
 							"response": []
 						},
@@ -518,7 +648,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/specifications/abe8a586-7bab-4fe9-94ff-154d7c1d57ec"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/specifications/abe8a586-7bab-4fe9-94ff-154d7c1d57ec",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"specifications",
+										"abe8a586-7bab-4fe9-94ff-154d7c1d57ec"
+									]
+								}
 							},
 							"response": []
 						},
@@ -536,7 +677,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/specifications/abe8a586-7bab-4fe9-94ff-154d7c1d57ec"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/specifications/abe8a586-7bab-4fe9-94ff-154d7c1d57ec",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"specifications",
+										"abe8a586-7bab-4fe9-94ff-154d7c1d57ec"
+									]
+								}
 							},
 							"response": []
 						},
@@ -554,7 +706,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/specifications/abe8a586-7bab-4fe9-94ff-154d7c1d57ec"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/specifications/abe8a586-7bab-4fe9-94ff-154d7c1d57ec",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"specifications",
+										"abe8a586-7bab-4fe9-94ff-154d7c1d57ec"
+									]
+								}
 							},
 							"response": []
 						}
@@ -580,7 +743,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/transactions"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/transactions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"transactions"
+									]
+								}
 							},
 							"response": []
 						},
@@ -601,7 +774,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/transactions/fb692b9f-a186-4fb0-a527-aae798e330fe"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/transactions/fb692b9f-a186-4fb0-a527-aae798e330fe",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"transactions",
+										"fb692b9f-a186-4fb0-a527-aae798e330fe"
+									]
+								}
 							},
 							"response": []
 						}
@@ -627,7 +811,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/users"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users"
+									]
+								}
 							},
 							"response": []
 						},
@@ -648,7 +842,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/users/d29dc478-3d52-4c35-9ef5-644758cc6e25"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/users/d29dc478-3d52-4c35-9ef5-644758cc6e25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"d29dc478-3d52-4c35-9ef5-644758cc6e25"
+									]
+								}
 							},
 							"response": []
 						},
@@ -666,7 +871,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/users/d29dc478-3d52-4c35-9ef5-644758cc6e25"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/users/d29dc478-3d52-4c35-9ef5-644758cc6e25",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"d29dc478-3d52-4c35-9ef5-644758cc6e25"
+									]
+								}
 							},
 							"response": []
 						}
@@ -692,7 +908,119 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/overview"
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/overview",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"overview"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Coverages",
+					"item": [
+						{
+							"name": "All Coverages",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/coverages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"coverages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Detail Coverage",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/coverages/b30a1391-e45f-4fb0-8089-55ca49778184",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"coverages",
+										"b30a1391-e45f-4fb0-8089-55ca49778184"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Coverage",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"location\":\"Yogyakarta\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/coverages/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"coverages",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit Coverage",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"location\": \"Pulau Bali\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/admin/coverages/b30a1391-e45f-4fb0-8089-55ca49778184",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"coverages",
+										"b30a1391-e45f-4fb0-8089-55ca49778184"
+									]
+								}
 							},
 							"response": []
 						}
@@ -749,7 +1077,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/account/login"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/account/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"account",
+										"login"
+									]
+								}
 							},
 							"response": []
 						},
@@ -796,7 +1135,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/account/register"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/account/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"account",
+										"register"
+									]
+								}
 							},
 							"response": []
 						},
@@ -843,7 +1193,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/account/refresh"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/account/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"account",
+										"refresh"
+									]
+								}
 							},
 							"response": []
 						},
@@ -886,7 +1247,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/account/profile"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/account/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"account",
+										"profile"
+									]
+								}
 							},
 							"response": []
 						},
@@ -926,7 +1298,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/account/profile"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/account/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"account",
+										"profile"
+									]
+								}
 							},
 							"response": []
 						},
@@ -966,7 +1349,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/account/profile"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/account/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"account",
+										"profile"
+									]
+								}
 							},
 							"response": []
 						},
@@ -1012,7 +1406,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/account/picture"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/account/picture",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"account",
+										"picture"
+									]
+								}
 							},
 							"response": []
 						}
@@ -1119,7 +1524,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/packages/43a82e60-cba8-40f2-83d2-5700efd89cb6"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/packages/43a82e60-cba8-40f2-83d2-5700efd89cb6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"packages",
+										"43a82e60-cba8-40f2-83d2-5700efd89cb6"
+									]
+								}
 							},
 							"response": []
 						},
@@ -1159,7 +1575,101 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/packages/43a82e60-cba8-40f2-83d2-5700efd89cb6/checkout"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/packages/43a82e60-cba8-40f2-83d2-5700efd89cb6/checkout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"packages",
+										"43a82e60-cba8-40f2-83d2-5700efd89cb6",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Overview",
+					"item": [
+						{
+							"name": "Overview",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/user/overview",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"overview"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Coverages",
+					"item": [
+						{
+							"name": "All Coverages",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/user/coverages",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"coverages"
+									]
+								}
 							},
 							"response": []
 						}
@@ -1207,7 +1717,17 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/transactions"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/transactions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"transactions"
+									]
+								}
 							},
 							"response": []
 						},
@@ -1250,7 +1770,18 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/transactions/fb692b9f-a186-4fb0-a527-aae798e330fe"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/transactions/fb692b9f-a186-4fb0-a527-aae798e330fe",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"transactions",
+										"fb692b9f-a186-4fb0-a527-aae798e330fe"
+									]
+								}
 							},
 							"response": []
 						},
@@ -1290,12 +1821,23 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/user/transactions/589b2581-8a3c-4386-ba0a-66fd11062097"
+								"url": {
+									"raw": "{{baseUrl}}/api/user/transactions/589b2581-8a3c-4386-ba0a-66fd11062097",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"transactions",
+										"589b2581-8a3c-4386-ba0a-66fd11062097"
+									]
+								}
 							},
 							"response": []
 						},
 						{
-							"name": "Set Active",
+							"name": "Check / Refresh Status Transaction",
 							"event": [
 								{
 									"listen": "test",
@@ -1318,8 +1860,11 @@
 									}
 								}
 							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
-								"method": "PATCH",
+								"method": "GET",
 								"header": [],
 								"body": {
 									"mode": "raw",
@@ -1330,48 +1875,19 @@
 										}
 									}
 								},
-								"url": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d"
-							},
-							"response": []
-						},
-						{
-							"name": "Post Image",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "image",
-											"type": "file",
-											"src": "/C:/Users/lanst/OneDrive/Pictures/Icon/download (1).jpeg"
-										}
+								"url": {
+									"raw": "{{baseUrl}}/api/user/transactions/8a39c962-8388-4226-bcb2-694adc0afc74/check",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"transactions",
+										"8a39c962-8388-4226-bcb2-694adc0afc74",
+										"check"
 									]
-								},
-								"url": "{{baseUrl}}/api/admin/packages/4b4358e3-e8b8-47a5-9726-73baec2f2b1d/image"
+								}
 							},
 							"response": []
 						}
@@ -1382,9 +1898,13 @@
 	],
 	"auth": {
 		"type": "bearer",
-		"bearer": {
-			"token": "{{accessToken}}"
-		}
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
 	},
 	"event": [
 		{
