@@ -405,7 +405,7 @@ const main = async () => {
         await seedPackage();
         await seedSpecification();
         await seedUser();
-        await seedTransaction();
+        // await seedTransaction();
         await seedCoverage();
     } catch (error) {
         console.log(error);

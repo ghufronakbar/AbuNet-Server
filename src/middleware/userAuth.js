@@ -22,8 +22,7 @@ export default function userAuth(handler) {
             if (!decoded) {
                 return res.status(401).json(resUnauthorized());
             }
-            if (!decoded.userId) {
-                console.log(authorization)
+            if (!decoded.userId) {                
                 return res.status(401).json(resUnauthorized());
             }
             
