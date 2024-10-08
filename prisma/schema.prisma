@@ -58,19 +58,22 @@ model Specification {
 }
 
 model Transaction {
-  transactionId String    @id @default(uuid())
-  userId        String
-  packageId     String
-  packageName   String
-  totalPrice    Int
-  isPaid        Boolean   @default(false)
-  isCancelled   Boolean   @default(false)
-  snapTokenMT   String    @default("")
-  redirectUrlMT String    @default("")
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @default(now()) @updatedAt
-  startedAt     DateTime?
-  paidAt        DateTime?
+  transactionId   String    @id @default(uuid())
+  userId          String
+  packageId       String
+  packageName     String
+  totalPrice      Int
+  itemPrice       Int       
+  installationFee Int       
+  overdueFee      Int       
+  isPaid          Boolean   @default(false)
+  isCancelled     Boolean   @default(false)
+  snapTokenMT     String    @default("")
+  redirectUrlMT   String    @default("")
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @default(now()) @updatedAt
+  startedAt       DateTime?
+  paidAt          DateTime?
 
   user    User    @relation(fields: [userId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
   package Package @relation(fields: [packageId], references: [packageId], onDelete: Cascade, onUpdate: Cascade)

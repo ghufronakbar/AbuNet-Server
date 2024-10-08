@@ -24,13 +24,16 @@ export const getTransactionById = async (transactionId) => {
     });
 }
 
-export const makeTransaction = async (userId, packageId, packageName, totalPrice) => {
+export const makeTransaction = async (userId, packageId, packageName, totalPrice, itemPrice, installationFee, overdueFee) => {
     return prisma.transaction.create({
         data: {
             userId,
             packageId,
             packageName,
             totalPrice,
+            itemPrice,
+            installationFee,
+            overdueFee,
         }
     });
 }
@@ -47,7 +50,7 @@ export const midtransTransaction = async (transactionId, snapTokenMT, redirectUr
     });
 }
 
-export const paidTransaction = async (transactionId, startedAt) => {
+export const paidTransaction = async (transactionId, startedAt, paidAt) => {
     return prisma.transaction.update({
         where: {
             transactionId
@@ -55,7 +58,7 @@ export const paidTransaction = async (transactionId, startedAt) => {
         data: {
             isPaid: true,
             startedAt,
-            paidAt: new Date(),
+            paidAt    
         }
     });
 }
