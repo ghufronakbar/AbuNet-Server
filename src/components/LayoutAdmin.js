@@ -28,6 +28,8 @@ import { GrMapLocation } from "react-icons/gr";
 import { BsPeopleFill } from "react-icons/bs";
 import { TbTransactionDollar } from "react-icons/tb";
 import { RiLogoutBoxRFill } from "react-icons/ri";
+import Cookie from 'js-cookie';
+import { ACCESS_TOKEN, REFRESH_TOKEN } from '@/constant/keyStore';
 
 
 const drawerWidth = 350;
@@ -101,10 +103,14 @@ function LayoutAdmin({ children, title }) {
     const router = useRouter();
     const [paths, setPaths] = React.useState([]);
 
+    const handleLogout = () => {
+        Cookie.remove(ACCESS_TOKEN);
+        Cookie.remove(REFRESH_TOKEN);
+    };
 
     React.useEffect(() => {
-        if (router.isReady) {            
-            const cleanPath = router.asPath.split('?')[0]; 
+        if (router.isReady) {
+            const cleanPath = router.asPath.split('?')[0];
             const pathSegments = cleanPath.split('/').slice(2);
             const firstPath = pathSegments[0] ? pathSegments[0].charAt(0).toUpperCase() + pathSegments[0].slice(1) : '';
 
@@ -178,7 +184,10 @@ function LayoutAdmin({ children, title }) {
                     <React.Fragment key={groupIndex}>
                         <List>
                             {group.map((item, index) => (
-                                <Link key={item.text} href={item.href} prefetch={false}>
+                                <Link key={item.text} href={item.href} prefetch={false} onClick={() => {
+                                    item.href === '/admin/logout' ? handleLogout()
+                                        : null
+                                }}>
                                     <ListItem disablePadding sx={{ display: 'block' }}>
                                         <ListItemButton
                                             sx={{
