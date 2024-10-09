@@ -71,6 +71,24 @@ export const createPackage = async (name, description, installationCost, image, 
     });
 }
 
+
+export const editPackage = async (packageId, name, description, installationCost, price) => {
+    return prisma.package.update({
+        data: {
+            name,
+            description,
+            installationCost,
+            price,
+        },
+        where: {
+            packageId
+        },
+        include: {
+            specifications: true
+        }
+    });
+}
+
 export const editImagePackage = async (packageId, image) => {
     return prisma.package.update({
         where: {

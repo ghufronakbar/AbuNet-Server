@@ -11,7 +11,7 @@ async function handler(req, res) {
 
         if (req.method === 'POST') {
             const { name, description, installationCost, price, specifications } = req.body
-            console.log({ name, description, installationCost, price, specifications })
+
             if (!name || !description || !installationCost || !price || !specifications) {
                 return res.status(400).json(resClientError('Semua field harus diisi'))
             }
@@ -38,7 +38,7 @@ async function handler(req, res) {
                 }
             }
 
-            const packages = await createPackage(name, description, installationCost, "/", price, specifications)
+            const packages = await createPackage(name, description, Number(installationCost), "/", Number(price), specifications)
 
             return res.status(200).json(resSuccess("Data Paket", packages));
         }

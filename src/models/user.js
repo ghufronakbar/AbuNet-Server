@@ -125,3 +125,14 @@ export const editPictureUser = async (userId, picture) => {
         }
     })
 }
+
+export const setAttached = async (userId, isAttached) => {
+    return prisma.user.update({
+        where: {
+            userId
+        },
+        data: {
+            isAttached
+        }
+    })
+}

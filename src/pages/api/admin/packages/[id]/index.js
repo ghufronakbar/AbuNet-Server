@@ -1,6 +1,7 @@
 import { resClientError, resNotAllowed, resNotFound, resServerError, resSuccess } from "@/helper/response";
 import adminAuth from "@/middleware/adminAuth";
-import { getPackageById, deletePackage, setActive } from "@/models/package";
+import { getPackageById, deletePackage, setActive, editPackage } from "@/models/package";
+import { createManySpecification, deleteManySpecification } from "@/models/spesification";
 import removeCloudinary from "@/utils/cloudinary/removeCloudinary";
 
 async function handler(req, res) {
@@ -32,6 +33,47 @@ async function handler(req, res) {
             }
             await deletePackage(id);
             return res.status(200).json(resSuccess("Berhasil menghapus paket", packages));
+        }
+
+        if (req.method === 'PUT') {
+            const { name, description, installationCost, price, specifications } = req.body
+
+            if (!name || !description || !installationCost || !price || !specifications) {
+                return res.status(400).json(resClientError('Semua field harus diisi'))
+            }
+            if (isNaN(Number(installationCost)) || isNaN(Number(price))) {
+                return res.status(400).json(resClientError('Harga harus berupa angka'))
+            }
+            if (typeof specifications !== 'object') {
+                return res.status(400).json(resClientError('Spesifikasi harus berupa {spec:string}[]'))
+            }
+            if (!Array.isArray(specifications)) {
+                return res.status(400).json(resClientError('Spesifikasi harus berupa {spec:string}[]'))
+            }
+            if (!specifications.length) {
+                return res.status(400).json(resClientError('Harus ada minimal 1 spesifikasi'))
+            }
+            if (Array.isArray(specifications)) {
+                for (let i = 0; i < specifications.length; i++) {
+                    if (typeof specifications[i] !== 'object' ||
+                        !specifications[i].hasOwnProperty('spec') ||
+                        typeof specifications[i].spec !== 'string' ||
+                        Object.keys(specifications[i]).length !== 1) {
+                        return res.status(400).json(resClientError('Spesifikasi harus berupa {spec:string}[]'))
+                    }
+                }
+            }
+
+            for (const spec of specifications) {
+                spec.packageId = id
+            }
+
+            const packages = await getPackageById(id);
+            if (!packages) return res.status(404).json(resNotFound());
+
+            await Promise.all([deleteManySpecification(id), createManySpecification(specifications), editPackage(id, name, description, installationCost, price)]);
+
+            return res.status(200).json(resSuccess("Berhasil mengedit paket"));
         }
 
         return res.status(405).json(resNotAllowed());

@@ -35,3 +35,17 @@ export const deleteSpecification = async (specificationId) => {
         },
     })
 }
+
+export const deleteManySpecification = async (packageId) => {
+    return prisma.specification.deleteMany({
+        where: {
+            packageId
+        }
+    })
+}
+
+export const createManySpecification = async (specifications) => {
+    return prisma.specification.createMany({
+        data: specifications
+    })
+}

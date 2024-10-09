@@ -65,9 +65,9 @@ async function handler(req, res) {
                     return res.status(500).json(resServerError());
                 }
             });
-
-            return;
+            return res.status(200).json(resSuccess("Berhasil mengupload gambar"));
         }
+        return res.status(405).json(resNotAllowed());
 
     } catch (error) {
         console.error('API Error:', error);
