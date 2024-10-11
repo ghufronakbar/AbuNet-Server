@@ -50,20 +50,31 @@ async function handler(req, res) {
                 getPackageById(id),
             ]);
 
+
             if (!packages) {
                 return res.status(404).json(resNotFound());
             }
 
-            if (!user.address && !user.phone) {
+
+            if (user.address === null && user.phone === null) {
                 return res.status(400).json(resClientError('Lengkapi profil terlebih dahulu'));
             }
 
+            const oneDayAfter = (date) => {
+                const newDate = new Date(date);
+                newDate.setDate(date.getDate() + 1);
+                return newDate;
+            }
+            
+
             if (
                 user.transactions.length > 0 &&
-                user.transactions[0].createdAt < twentyFourHoursAfter &&
+                oneDayAfter(user.transactions[0].createdAt) > date &&
+                user.transactions[0].createdAt <= date &&
                 user.transactions[0].isPaid === false &&
                 user.transactions[0].isCancelled === false
             ) {
+
                 return res.status(400).json(resClientError('Lakukan pembayaran sebelumnya terlebih dahulu', user.transactions[0]));
             }
 

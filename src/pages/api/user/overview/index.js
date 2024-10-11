@@ -4,6 +4,15 @@ import threeDaysAhead from "@/helper/threeDaysAhead";
 import userAuth from "@/middleware/userAuth";
 import { getUserById } from "@/models/user";
 
+const date = new Date();
+
+
+const oneDayAfter = (date) => {
+    const newDate = new Date(date);
+    newDate.setDate(date.getDate() + 1);
+    return newDate;
+}
+
 async function handler(req, res) {
     const { userId } = req.decoded
     try {
@@ -15,13 +24,13 @@ async function handler(req, res) {
             delete user.refreshToken;
             for (const transaction of user.transactions) {
                 if (transaction.isCancelled) {
-                    transaction.status = "CANCELLED";
+                    transaction.status = "CANCELLED"
                 } else if (transaction.isPaid) {
-                    transaction.status = "PAID";
-                } else if (!transaction.isPaid && transaction.createdAt < sevenDaysAgo) {
-                    transaction.status = "EXPIRED";
+                    transaction.status = "PAID"
+                } else if (!transaction.isPaid && date > oneDayAfter(transaction.createdAt)) {
+                    transaction.status = "EXPIRED"
                 } else {
-                    transaction.status = "UNPAID";
+                    transaction.status = "UNPAID"
                 }
             }
             if (user.transactions.length === 0) {

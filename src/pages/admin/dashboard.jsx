@@ -140,8 +140,8 @@ const LineChart = ({ records }) => {
 
 // Komponen untuk item grid
 const GridItem = ({ title, value, percentageText, description, colSpan }) => (
-  <div className={`bg-white rounded-lg p-4 shadow h-auto w-full ${colSpan}`}>
-    <Typography variant="h6">{title}</Typography>
+  <div className={`bg-white rounded-lg p-4 shadow h-auto w-full overflow-auto ${colSpan}`}>
+    <Typography variant="h6" className="text-md md:text-lg">{title}</Typography>
     <Typography variant="h3">
       {value}
       <span className={`text-sm ${percentageText.color}`}>
@@ -149,7 +149,7 @@ const GridItem = ({ title, value, percentageText, description, colSpan }) => (
         {percentageText.text}
       </span>
     </Typography>
-    <Typography variant="body1">{description}</Typography>
+    <Typography variant="body2">{description}</Typography>
   </div>
 );
 
