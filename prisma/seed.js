@@ -402,11 +402,12 @@ const main = async () => {
     try {
         await prisma.$connect();
         await seedAdmin();
-        await seedPackage();
-        await seedSpecification();
-        await seedUser();
+        // await seedPackage();
+        // await seedSpecification();
+        // await seedUser();
         // await seedTransaction();
         await seedCoverage();
+        console.log("seed")
     } catch (error) {
         console.log(error);
     }

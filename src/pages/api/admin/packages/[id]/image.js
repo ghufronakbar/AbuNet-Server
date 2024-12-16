@@ -54,21 +54,22 @@ async function handler(req, res) {
                 };
 
                 if (packages.image) {
-                    await removeCloudinary(packages.image, 'package');
+                    removeCloudinary(packages.image, 'package');
                 }
 
                 try {
                     const uploadResult = await uploadToCloudinary();
+                    console.log({ uploadResult: uploadResult.url });
                     const edited = await editImagePackage(id, uploadResult.url);
+                    console.log({ edited });
                     return res.status(200).json(resSuccess("Berhasil mengupload gambar", edited));
                 } catch (error) {
-                    return res.status(500).json(resServerError());
+                    throw error;
                 }
             });
-            return res.status(200).json(resSuccess("Berhasil mengupload gambar"));
+        } else {
+            return res.status(405).json(resNotAllowed());
         }
-        return res.status(405).json(resNotAllowed());
-
     } catch (error) {
         console.error('API Error:', error);
         return res.status(500).json(resServerError());
